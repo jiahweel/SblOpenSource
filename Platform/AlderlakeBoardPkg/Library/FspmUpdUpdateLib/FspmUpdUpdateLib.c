@@ -512,6 +512,7 @@ UpdateFspConfig (
     // DP + DP
     CopyMem(SaDisplayConfigTable, (VOID *)(UINTN)mAdlNLpddr5RowDisplayDdiConfig, sizeof(mAdlNLpddr5RowDisplayDdiConfig));
     break;
+  case PLATFORM_ID_ADL_N_UP2PROTWL:
   case PLATFORM_ID_RPL_P_DDR5_CRB:
     DEBUG((DEBUG_INFO, "PLATFORM_ID_RPL_P_DDR5_CRB board Id %x .....\n", PlatformId));
     CopyMem(SaDisplayConfigTable, (VOID *)(UINTN)mRplPDdr5SODimmCrbDisplayDdiConfig, sizeof(mRplPDdr5SODimmCrbDisplayDdiConfig));
@@ -623,6 +624,7 @@ UpdateFspConfig (
         Fspmcfg->Lp5CccConfig = 0xff;
         Fspmcfg->SkipCpuReplacementCheck = 0x0;
         break;
+      case PLATFORM_ID_ADL_N_UP2PROTWL:
       case PLATFORM_ID_RPLP_LP5_AUTO_RVP:
       case PLATFORM_ID_RPLP_LP5_AUTO_CRB:
         Fspmcfg->PcieClkReqGpioMux[9] = 0x796e9000;
@@ -681,6 +683,7 @@ UpdateFspConfig (
         case PLATFORM_ID_ADL_P_DDR5_RVP:
         case PLATFORM_ID_ADL_P_UPXI12:
         case PLATFORM_ID_ADL_N_UP7EN50:
+        case PLATFORM_ID_ADL_N_UP2PROTWL:
         case PLATFORM_ID_RPL_P_UPXI12:
           Fspmcfg->PchIshEnable       = 1;
       }
