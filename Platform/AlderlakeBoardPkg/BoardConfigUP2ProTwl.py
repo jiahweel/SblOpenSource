@@ -28,7 +28,7 @@ class Board(BaseBoard):
         self.VERINFO_SVN            = 1
         self.VERINFO_BUILD_DATE     = time.strftime("%m/%d/%Y")
 
-        self.BOARD_NAME           = 'adln'
+        self.BOARD_NAME           = 'up2ptwl'
         self.BOARD_PKG_NAME       = 'AlderlakeBoardPkg'
         self.SILICON_PKG_NAME     = 'AlderlakePkg'
         self.FSP_IMAGE_ID         = '$TWLFSP$'
@@ -50,8 +50,8 @@ class Board(BaseBoard):
         self.LOADER_ACPI_RECLAIM_MEM_SIZE = 0x000090000
         self.HAVE_FIT_TABLE       = 1
         self.HAVE_VBT_BIN         = 1 # TBD
-        self.HAVE_VERIFIED_BOOT   = 1
-        self.HAVE_MEASURED_BOOT   = 1
+        self.HAVE_VERIFIED_BOOT   = 0
+        self.HAVE_MEASURED_BOOT   = 0
         self.HAVE_FLASH_MAP       = 1
         self.HAVE_ACPI_TABLE      = 1
         self.HAVE_PSD_TABLE       = 1
@@ -68,7 +68,7 @@ class Board(BaseBoard):
         self.ENABLE_SMM_REBASE    = 4
 
         # 0 - PCH UART0, 1 - PCH UART1, 2 - PCH UART2, 0xFF - EC UART 0x3F8
-        self.DEBUG_PORT_NUMBER = 0x0
+        self.DEBUG_PORT_NUMBER = 0x1
 
         self.ENABLE_MULTI_USB_BOOT_DEV = 1
 
@@ -111,16 +111,22 @@ class Board(BaseBoard):
         self.STAGE1_STACK_SIZE    = 0x00002000
         self.STAGE1_DATA_SIZE     = 0x00014000
         self.FSP_M_STACK_TOP      = 0xFEF7FF00
-        self.STAGE1B_SIZE         = 0x00200000
-        self.STAGE2_SIZE          = 0x000C2000
-        self.STAGE2_FD_BASE       = 0x01000000
+        self.STAGE1B_SIZE         = 0x000DA000
+        self.STAGE2_SIZE          = 0x000A0000
+        self.STAGE2_FD_BASE       = 0x000B0000
         self.STAGE2_FD_SIZE       = 0x001F0000
-
-        self.PAYLOAD_SIZE         = 0x00030000
-        self.EPAYLOAD_SIZE        = 0x00240000
+ 
+        self.EPAYLOAD_SIZE        = 0x00161000
+        self.PAYLOAD_SIZE         = 0x0002B000
 
         self.OS_LOADER_FD_SIZE    = 0x0005B000
         self.OS_LOADER_FD_NUMBLK  = self.OS_LOADER_FD_SIZE // self.FLASH_BLOCK_SIZE
+
+#             self.STAGE1A_SIZE         = 0x00016000
+#             self.STAGE1B_SIZE         = 0x000E0000
+#             self.STAGE2_SIZE          = 0x000C0000
+#             self.STAGE2_FD_SIZE       = 0x000F0000
+#             self.PAYLOAD_SIZE         = 0x00024000
 
         self.ENABLE_FAST_BOOT = 0
         if self.ENABLE_FAST_BOOT:
@@ -194,7 +200,7 @@ class Board(BaseBoard):
         self.SLIMBOOTLOADER_SIZE  = ((self.SLIMBOOTLOADER_SIZE + 0xFFFFF) & ~0xFFFFF)
         self.PLD_HEAP_SIZE        = 0x09000000
         self.PLD_STACK_SIZE       = 0x00020000
-        self.PLD_RSVD_MEM_SIZE    = 0x00500000
+        self.PLD_RSVD_MEM_SIZE    = 0x004C0000
 
         self.KM_SIZE              = 0x00000400
         self.BPM_SIZE             = 0x00000600
