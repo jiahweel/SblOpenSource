@@ -188,6 +188,7 @@ UpdateFspConfig (
   SpdData[7] = (UINT32)(UINTN) (((MEM_SPD6_CFG_DATA *)FindConfigDataByTag (CDATA_MEM_SPD6_TAG))->MemorySpdPtr6);
   SpdData[8] = (UINT32)(UINTN) (((MEM_SPD7_CFG_DATA *)FindConfigDataByTag (CDATA_MEM_SPD7_TAG))->MemorySpdPtr7);
   SpdData[9] = (UINT32)(UINTN) (((MEM_SPD8_CFG_DATA *)FindConfigDataByTag (CDATA_MEM_SPD8_TAG))->MemorySpdPtr8);
+  SpdData[10] = (UINT32)(UINTN) (((MEM_SPD9_CFG_DATA *)FindConfigDataByTag (CDATA_MEM_SPD9_TAG))->MemorySpdPtr8);
 
 #if defined(PLATFORM_RPLA)
   UINT8 MemId;
