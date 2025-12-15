@@ -58,6 +58,7 @@ class Board(BaseBoard):
         self.ENABLE_SPLASH            = 1
         self.ENABLE_FRAMEBUFFER_INIT  = 1
         self.ENABLE_VTD           = 1
+        self.ENABLE_GRUB_CONFIG   = 1
         # To enable source debug, set 1 to self.ENABLE_SOURCE_DEBUG
         self.ENABLE_SOURCE_DEBUG  = 0
         # If ENABLE_SOURCE_DEBUG is disabled, SKIP_STAGE1A_SOURCE_DEBUG will be ignored
