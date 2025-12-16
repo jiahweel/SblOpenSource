@@ -82,9 +82,9 @@ GpioIsPadValid (
   if (PadNumber >= GpioGroupInfo[GroupIndex].PadPerGroup) {
     DEBUG ((GPIO_DEBUG_ERROR, "GPIO ERROR: Pin number (%d) exceeds possible range for this group\n", PadNumber));
     goto Error;
+  }else{
+    return TRUE;
   }
-
-  return TRUE;
 Error:
   ASSERT (FALSE);
   return FALSE;
@@ -656,6 +656,9 @@ GpioPadRstCfgFromResetConfig (
         goto Error;
       }
       break;
+    case GpioResetPwrGood:
+      DEBUG((DEBUG_INFO,"reach case GpioResetPwrGood\n"));
+      break;
     default:
       goto Error;
   }
@@ -689,7 +692,7 @@ GpioConfigFromPadCfgRegValue (
   // Get Reset Type (PadRstCfg)
   //
   PadRstCfg = (PadCfgDwReg[0] & B_GPIO_PCR_RST_CONF) >> N_GPIO_PCR_RST_CONF;
-
+ 
   GpioConfig->PowerConfig = GpioResetConfigFromPadRstCfg (
                               GpioPad,
                               PadRstCfg
@@ -838,7 +841,7 @@ GpioGetPadConfig (
   // Get Pad Configuration Lock Tx state
   //
   GpioData->LockConfig |= ((!((RegVal >> PadBitPosition) & 0x1)) << 2) | 0x1;
-
+  
   return EFI_SUCCESS;
 }
 
